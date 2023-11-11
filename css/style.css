@@ -1,0 +1,300 @@
+@charset "UTF-8";
+
+/* #886022 */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    color: #333;
+}
+img{
+    vertical-align: top;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+h2{
+    color: inherit;
+}
+
+.hidden{
+    display: none;
+}
+
+.wrap{
+    width: 1000px;
+    display: flex;
+}
+
+header{
+    width: 200px;
+    padding-top: 10px;
+}
+
+header .logo img{
+    width: 100%;
+}
+
+/* menu */
+
+
+.mainMenu{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.mainMenu > li{
+    position: relative;
+    padding: 10px 0;
+}
+
+.mainMenu > li > a{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.mainMenu > li:hover{
+    background-color: #886022;
+    color: #FFF;
+}
+
+.subMenu{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 150px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 1;
+}
+
+.mainMenu > li:hover > .subMenu{
+    visibility: visible;
+    opacity: 1;
+}
+
+.subMenu > li{
+    padding: 12px;
+    background-color: #999;
+    line-height: 22px;
+    color: #fff;
+}
+.subMenu > li:hover{
+    color: #333;
+    text-decoration: underline;
+}
+
+/* /menu */
+
+/* contents */
+.contentWrap{
+    width: 800px;
+}
+
+.bannerWrap{
+    position: relative;
+    height: 350px;
+}
+
+
+.bannerImg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: 1.5s;
+}
+
+.bannerImg.active{
+    opacity: 1;
+    
+}
+
+.bannerImg p{
+    position: absolute;
+    color: #fff;
+    font-size: 36px;
+    font-weight: 700;
+    bottom: 15%;
+    right: 10%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+
+.bannerImg img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+.boardWrap{
+    height: 200px;
+    display: flex;
+}
+
+.sectionStyle{
+    padding: 5px;
+}
+
+.notice{
+    flex: 1;
+}
+
+.notice > ul{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.noticeItem{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3px;
+}
+
+.noticeItem::before{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.noticeItem:hover{
+    background-color: #333;
+}
+
+.noticeItem:hover::before{
+    background-color: #fff;
+}
+.noticeItem:hover p{
+    color: #fff;
+}
+
+.contents{
+    padding-left: 15px;
+}
+
+
+.gallery{
+    flex: 1;
+}
+
+.gallery > ul{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    /* gap: 10px; */
+}
+
+
+.shortcut{
+    width: 200px;
+    background-image: url("/image/shortcut.jpg");
+    color: #fff;
+}
+.shortcut .modal{
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.shortcut h2{
+    width: 100%;
+    line-height: 2;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.shortcut .modal:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+.shortcut .modal:hover h2{
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+/* //contents */
+
+
+
+/* footer */
+footer{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #999;
+}
+
+.footerLogo{
+    width: 20%;
+}
+
+.footerLogo img{
+    width: 100%;
+}
+
+.familySite{
+    width: 20%;
+}
+/* //footer */
+
+
+/* modal */
+
+
+.modalWrap{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.modalWrap.active{
+    display: flex;
+}
+.modalInner{
+    background-color: #ccc;
+    border-radius: 5px;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btnClose{
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    align-self: flex-end;
+}
+.btnClose:hover{
+    background-color: #886022;
+}
+
+/* //modal */
