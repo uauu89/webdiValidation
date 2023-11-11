@@ -203,7 +203,7 @@ header .logo img{
 
 .shortcut{
     width: 200px;
-    background-image: url("/image/shortcut.jpg");
+    background-image: url("../image/shortcut.jpg");
     color: #fff;
 }
 .shortcut .modal{
