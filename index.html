@@ -3,157 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Festival</title>
+    <title>코리아 은행</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header>
+        <h1 class="logo">
+            <a href="#"><img src="image/logo.png" alt="코리아은행"></a>
+        </h1>
+        <nav>
+            <ul class="gnb">
+                <li>
+                    <a href="#">개인</a>
+                    <div class="submenuWrap">
+                        <ul>
+                            <li><a href="#">조회</a></li>
+                            <li><a href="#">이체</a></li>
+                            <li><a href="#">공과금</a></li>
+                            <li><a href="#">예금/신탁</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">기업</a>
+                    <div class="submenuWrap">
+                        <ul>
+                            <li><a href="#">조회</a></li>
+                            <li><a href="#">이체</a></li>
+                            <li><a href="#">전자결제</a></li>
+                            <li><a href="#">수표/어음</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">금융상품</a>
+                    <div class="submenuWrap">
+                        <ul>
+                            <li><a href="#">저축상품</a></li>
+                            <li><a href="#">대출상품</a></li>
+                            <li><a href="#">투자상품</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">카드</a>
+                    <div class="submenuWrap">
+                        <ul>
+                            <li><a href="#">카드정보</a></li>
+                            <li><a href="#">카드신청</a></li>
+                            <li><a href="#">이용내역조회</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="wrap">
-        <header>
-            <h1 class="logo">
-                <a href="#"><img src="./image/logo.png" alt="World Festival"></a>
-            </h1>
-            <nav>
-                <ul class="mainMenu">
+    <div class="contentsWrap">
+        <section class="slideWrap">
+            <a href="#" class="slideItem current">
+                <h2>대표 은행, 코리아은행</h2>
+                <img src="image/img1.jpg" alt="대표 은행, 코리아은행">
+            </a>
+            <a href="#" class="slideItem">
+                <h2>차원이 다른 코리아은행</h2>
+                <img src="image/img2.jpg" alt="차원이 다른 코리아은행">
+            </a>
+            <a href="#" class="slideItem">
+                <h2>더욱 쉬운 오픈뱅킹 서비스</h2>
+                <img src="image/img3.jpg" alt="더욱 쉬운 오픈뱅킹 서비스">
+            </a>
+        </section>
+
+        <section class="board">
+            <div class="titleWrap">
+                <h2><a href="#" class="noticeTitle active">공지사항</a></h2>
+                <h2><a href="#" class="galleryTitle">갤러리</a></h2>
+            </div>
+            <div class="boardInner">
+                <ul class="notice active">
                     <li>
-                        <a href="#">축제소개</a>
-                        <ul class="subMenu">
-                            <li><a href="#">Festival소개</a></li>
-                            <li><a href="#">행사장 안내</a></li>
-                            <li><a href="#">조직위원회</a></li>
-                        </ul>
+                        <a href="#">
+                            <p>대한은행 홈페이지 개편 안내</p>
+                            <p>2022.03.01</p>
+                        </a>
                     </li>
                     <li>
-                        <a href="#">예약안내</a>
-                        <ul class="subMenu">
-                            <li><a href="#">예약하기</a></li>
-                            <li><a href="#">예약확인/취소</a></li>
-                            <li><a href="#">단체예약문의</a></li>
-                        </ul>
+                        <a href="#">
+                            <p>종합생활금융 플랫폼 코리아은행</p>
+                            <p>2022.03.01</p>
+                        </a>
                     </li>
                     <li>
-                        <a href="#">아티스트</a>
-                        <ul class="subMenu">
-                            <li><a href="#">두유노킹콩</a></li>
-                            <li><a href="#">우기욱이</a></li>
-                            <li><a href="#">예공주</a></li>
-                            <li><a href="#">우빈밴드</a></li>
-                        </ul>
+                        <a href="#">
+                            <p>시스템 정기 점검 안내</p>
+                            <p>2022.03.01</p>
+                        </a>
                     </li>
                     <li>
-                        <a href="#">커뮤니티</a>
-                        <ul class="subMenu">
-                            <li><a href="#">공지사항</a></li>
-                            <li><a href="#">사진갤러리</a></li>
-                            <li><a href="#">영상갤러리</a></li>
-                        </ul>
+                        <a href="#">
+                            <p>오픈뱅킹 앱 사용법 안내</p>
+                            <p>2022.03.01</p>
+                        </a>
                     </li>
                 </ul>
-            </nav>
-        </header>
-        <div class="contentWrap">
-            <section class="bannerWrap">
-                <h2 class="hidden">배너 이미지 섹션</h2>
 
-                <a href="#" class="bannerImg active">
-                    <p>World Festival 1</p>
-                    <img src="image/img1.jpg" alt="배너 이미지 1">
-                </a>
-                <a href="#" class="bannerImg banner2">
-                    <p>World Festival 2</p>
-                    <img src="image/img2.jpg" alt="배너 이미지 2">
-                </a>
-                <a href="#" class="bannerImg banner3">
-                    <p>World Festival 3</p>
-                    <img src="image/img3.jpg" alt="배너 이미지 3">
-                </a>
-
-
-            </section>
-            <div class="boardWrap">
-                <section class="sectionStyle notice">
-                    <h2>공지사항</h2>
-                    <ul>
-                        <li>
-                            <a href="#" class="noticeItem">
-                                <p class="contents">Vallery Festival 공지1</p>
-                                <p class="date">2022.03.01</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="noticeItem">
-                                <p class="contents">Vallery Festival 공지2</p>
-                                <p class="date">2022.03.01</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="noticeItem">
-                                <p class="contents">Vallery Festival 공지3</p>
-                                <p class="date">2022.03.01</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="noticeItem">
-                                <p class="contents">Vallery Festival 공지4</p>
-                                <p class="date">2022.03.01</p>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-                <section class="sectionStyle gallery">
-                    <h2>갤러리</h2>
-                    <ul>
-                        <li>
-                            <a href="#"><img src="image/gallery1.jpg" alt="갤러리1"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="image/gallery2.jpg" alt="갤러리2"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="image/gallery3.jpg" alt="갤러리3"></a>
-                        </li>
-                    </ul>
-                </section>
-                <section class="shortcut">
-                    <a href="#" class="modal">
-                        <h2>바로가기</h2>
-                    </a>
-                </section>
+                <ul class="gallery">
+                    <li>
+                        <a href="#"><img src="image/gallery1.jpg" alt="갤러리1"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="image/gallery2.jpg" alt="갤러리2"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="image/gallery3.jpg" alt="갤러리3"></a>
+                    </li>
+                </ul>
             </div>
-            <footer>
-                <div class="footerLogo">
-                    <a href="#"><img src="./image/logo_gray.png" alt="World Festival"></a>
-                </div>
-                <div class="copyright">
-                    COPYRIGHT&copy; by WEBDESIGN. ALL RIGHTS RESERVED
-                </div>
-                <div class="familySite">
-                    <select name="familySite" id="familySite">
-                        <option value="site1">패밀리사이트1</option>
-                        <option value="site2">패밀리사이트2</option>
-                        <option value="site3">패밀리사이트3</option>
-                    </select>
-                </div>
-            </footer>
-        </div>
+        </section>
 
-        <div class="modalWrap">
-            <section class="modalInner">
-                <h2>무궁화 축제</h2>
-                <p>
-                    무궁무궁 무궁화 무궁화는 우리꽃<br>
-                    피고 지고 또 피어 무궁화라네~
-                </p>
-                <p>
-                    광복절을 맞이하여 무궁화 축제가 열립니다.<br>
-                    무궁화 전시, 무궁화 체험, 공연 등 많은 참여를 바랍니다.
-                </p>
-                <a href="#" class="btnClose">닫기</a>
-            </section>
+        <section class="banner">
+            <h2 class="hidden">배너</h2>
+            <img src="image/banner.jpg" alt="배너">
+        </section>
+        <section class="shortcut">
+            <a href="#"><h2>바로가기</h2></a>
+            <img src="image/shortcut.jpg" alt="바로가기 이미지">
+        </section>
+    </div>
+
+    <footer>
+        <div class="footerLogo">
+            <img src="image/logoGray.png" alt="푸터 로고">
         </div>
+        <div class="footerLNB">
+            <ul>
+                <li><a href="#">하단메뉴1</a></li>
+                <li><a href="#">하단메뉴2</a></li>
+                <li><a href="#">하단메뉴3</a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            COPYRIGHT&copy; by WEBDESIGN. ALL RIGHTS RESERVED
+        </div>
+    </footer>
+
+    <div class="modalWrap">
+        <section class="modal">
+            <h2>코리아은행 기업 서비스 개선 안내</h2>
+            <p>
+                코리아은행에서는 더 나은 금융서비스를 제공하고자 
+                기업 금융서비스를 전면 개편하였습니다.
+            </p>
+            <p>
+                이번 개편을 통해 금융뿐만 아니라 고객 데이터 분석, 
+                비금융 서비스 등을 제공하는 기업 종합금융 플랫폼으로 
+                거듭나게 되었으며, 모든 금융계좌의 통합관리, 
+                자금 수금 및 지급 실행 등 통합자금관리 서비스를 
+                무료로 제공합니다.
+            </p>
+            <p class="btnWrap">
+                <a href="#" class="btnClose">닫기</a>
+            </p>
+        </section>
     </div>
 
     <script src="script/script.js"></script>
-    
 </body>
 </html>
