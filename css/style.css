@@ -6,9 +6,7 @@
     list-style: none;
     box-sizing: border-box;
 }
-h2{
-    font-size: 1em;
-}
+
 a{
     color: inherit;
     text-decoration: none;
@@ -17,324 +15,287 @@ a{
 img{
     vertical-align: top;
 }
+
 body{
     color: #333;
 }
 
 
-.hidden{
-    display: none;
+.wrap{
+    width: 1200px;
+    margin: 0 auto;
 }
 
 
-
+/* header */
 header{
-    width: 100%;
-    height: 100px;
     display: grid;
-    grid-template-columns: 250px auto;
-    
+    height: 100px;
+    grid-template-columns: 200px auto;
+    align-items: center;    
 }
-
-
-.logo img{
-    width: 250px;
-}
-
 
 nav{
-    padding-top: 10px;
-    padding-right: 20px;
-    display: flex;
-    justify-content: right;
-    align-items: center;
+    justify-self: end;
+    margin-top: 20px;
 }
-.gnb{
+.mainMenu{
     display: grid;
-    grid-template-columns: repeat(4, 150px);
+    grid-template-columns: repeat(4, 160px);
 }
 
-.gnb > li{
+.mainMenu > li{
     position: relative;
 }
-
-.gnb > li > a{
+.mainMenu > li > a{
     display: block;
-    padding: 5px 10px;
-    width: 150px;
-    line-height: 30px;
-    text-align: center;
     font-size: 20px;
     font-weight: bold;
-
+    line-height: 36px;
+    text-align: center;
+}
+.mainMenu > li:hover > a{
+    color: #fff;
+    background-color: #333;
 }
 
-.gnb > li:hover > a{
-    background-color: #cc6;
-}
-
-
-/* menu */
-.submenuWrap{
+.subMenu{
     position: absolute;
-    display: grid;
-    grid-template-rows: 0px;
-    transition: 0.3s;
     width: 100%;
-    z-index: 10;
-}
-
-.gnb:hover .submenuWrap{
-    grid-template-rows: 180px;
-}
-
-.submenuWrap ul{
     overflow: hidden;
-    background-color: #ccc;
+    z-index: 10;
+    height: 0px;
+    transition: 0.3s;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    text-align: center;
+    background-color: #ccc;
 }
 
-.submenuWrap > ul> li > a{
+.mainMenu:hover .subMenu{
+    height: 250px;
+}
+
+.subMenu li a{
     display: block;
     width: 100%;
-    padding: 5px 10px;
-    text-align: center;
+    padding: 4px 8px;
+    line-height: 40px;
 }
-.submenuWrap > ul> li > a:hover{
-    font-weight: bold;
-    background-color: #333;
+.subMenu li:hover a{
+    background-color: #666;
     color: #fff;
 }
-
-
-/* //menu */
-
+/* //header */
 
 
 /* contents */
-.contentsWrap{
-    width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 300px 200px;
-    grid-template-areas: "slide slide slide" "board banner shortcut";
-}
 
 
-.slideWrap{
-    grid-area: slide;
-    position: relative;
+/* --slide */
+.slide{
+    height: 300px;
     overflow: hidden;
+    position: relative;
 }
 
 .slideItem{
-    position: absolute;
     display: block;
-    width: 100%;
-    height: 100%;
-    left: 100%;
-    top: 0;
+    position: absolute;
+    top: -100%;
+    left: 0;
 }
-
 .slideItem.prev{
-    left: -100%;
-    transition: 1.5s;
+    top: 100%;
+    transition: 2s;
 }
-
 .slideItem.current{
-    left: 0%;
-    transition: 1.5s;
+    top: 0;
+    transition: 2s;
 }
 
 
 .slideItem h2{
+    display: block;
     position: absolute;
-    left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    left: 50%;
+    transform: translate(-50%,-50%);
     color: #fff;
-    padding: 5px 30px;
-    font-size: 36px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 8px 15px;
+}
+/* --//slide */
+
+.contentsWrap{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 200px;
 }
 
-
-.slideItem img{
-    width: 100%;
-    height: 100%;
-}
-
-
+/* --board */
 
 .board{
-    grid-area: board;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 5px 0;
+}
+
+.boardTitleWrap{
+    display: flex;
+    gap: 10px;
+    padding-left: 4px;
+}
+
+.boardTitleWrap a{
+    display: block;
+    width: 120px;
+    padding: 2px 10px;
+    border-radius: 5px 5px 0 0 ;
+    text-align: center;
+    font-size: 20px;
+}
+
+.boardTitleWrap a.active{
+    background-color: #333;
+    color: #fff;
+}
+
+.boardInner{
+    border: 2px solid #333;
+    flex: 1;
     padding: 5px;
     display: flex;
     flex-direction: column;
-}
-.titleWrap{
-    display: flex;
-    font-size: 20px;
-    gap: 20px;
+    justify-content: center;
 }
 
-.titleWrap a{
+ul.notice{
+    display: none;
+}
+ul.notice.active{
     display: block;
-    width: 100px;
-    text-align: center;
-    padding: 4px 8px;
-    border-radius: 5px 5px 0 0;
 }
 
-.titleWrap a:hover{
-    text-decoration: underline;
+ul.gallery{
+    display: none;
+}
+ul.gallery.active{
+    display: flex;
+    justify-content: space-around;
 }
 
-.titleWrap a.active{
+ul.gallery a:hover{
+    opacity: 0.4;
+}
+
+
+.notice > li{
+    position: relative;
+}
+.notice > li::before{
+    position: absolute;
+    content: "";
+    display: block;
+    width: 4px;
+    height: 4px;
+    background-color: #333;
+    border-radius: 5px;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.notice > li:hover::before{
+    background-color: #fff;
+}
+
+.notice > li > a{
+    display: flex;
+    padding: 5px 8px;
+    justify-content: space-between;
+    text-indent: 5px;
+}
+
+
+.notice > li:hover > a{
     color: #fff;
     background-color: #333;
 }
 
-.boardInner{
-    border: 3px solid #333;
-    padding: 5px 10px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
+/* --//board */
 
 
-.notice{
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-}
-.notice.active{
-    display: flex;
-}
-.notice > li > a{
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.notice > li > a:hover{
-    color: #fff;
-    background-color: #666;
-}
-
-.gallery{
-    display: none;
-    justify-content: space-between;
-}
-.gallery.active{
-    display: flex;
-}
-
-
-.banner{
-    grid-area: banner;
-}
-.shortcut{
-    grid-area: shortcut;
+.sectionInner{
     position: relative;
-}
-
-.shortcut a{
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-}
-.shortcut a:hover{
-    background-color: rgba(255, 255, 255, 0.3);
+    align-items: center;
 }
 
-
-.shortcut h2{
-    font-size: 24px;
-    font-weight: bold;
-    background-color: rgba(255, 255, 255, 0.5);
+.sectionInner h2{
+    position: absolute;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 70%;
     text-align: center;
-    line-height: 40px;
+    line-height: 36px;
 }
-.shortcut a:hover h2{
+
+.sectionInner:hover h2{
     background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
 }
-
-.boardFlex{
-    height: 200px;
+.sectionInner:hover::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
 }
+
+
+
 
 /* //contents */
 
 
+/* footer */
 footer{
-    width: 100%;
-    height: 100px;
     display: grid;
-    grid-template-columns: 300px auto 300px;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas: "logo lnb empty"  "logo copyright empty";
-    background-color: #666;
-}
-
-.footerLogo{
-    grid-area: logo;
-}
-
-.footerLogo img{
-    width: 100%;
     height: 100px;
-}
-
-.footerLNB{
-    grid-area: lnb;
-    display: flex;
-    justify-content: center;
+    grid-template-columns: 200px auto 200px;
+    grid-template-areas: "fLogo copyright sns";
     align-items: center;
-    
 }
 
-.footerLNB ul{
-    display: flex;
-    margin: 0 auto;
-    gap: 20px;
-    font-weight: bold;
-    color: #ccc;
-}
-.footerLNB a:hover{
-    color: #333;
+.fLogo{
+    grid-area: fLogo;
 }
 
 .copyright{
     grid-area: copyright;
     text-align: center;
-    color: #fff;
-    line-height: 50px;
 }
 
-
+.sns{
+    grid-area: sns;
+}
+/* //footer */
 
 /* modal */
 
 .modalWrap{
     position: fixed;
-    right: 0;
-    left: 0;
     top: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    left: 0;
+    right: 0;
     display: none;
+    background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
 }
@@ -344,37 +305,37 @@ footer{
 }
 
 .modal{
-    background-color: #eee;
-    width: 600px;
+    position: absolute;
+    display: flex;
+    background-color: #ccc;
+    width: 700px;
     padding: 30px 50px;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .modal h2{
-    font-size: 26px;
-    font-weight: bold;
-    text-align: center;
     margin-bottom: 30px;
 }
-
 .modal p{
-    text-indent: 10px;
-    margin: 10px 0;
+    text-indent: 5px;
 }
 
-.modal .btnWrap{
-    text-indent: unset;
-    text-align: right;
-}
 
 .modal .btnClose{
-    display: inline-block;
-    background-color: #333;
-    color: #fff;
-    padding: 5px 10px;
+    align-self: end;
+    display: block;
+    border: 2px solid #333;
+    width: 80px;
+    line-height: 24px;
     text-align: center;
     font-weight: bold;
+    background-color: #333;
+    color: #fff;
 }
+
 .modal .btnClose:hover{
-    color: #333;
-    background-color: #cc6;
+    text-decoration: underline;
 }
+
+/* //modal */
