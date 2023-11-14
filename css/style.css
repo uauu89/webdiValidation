@@ -1,373 +1,354 @@
 @charset "utf-8";
 
-
 :root{
-    --mainColor : #c86400;
-    --menuHeight : 200px
+    --color_main : #c8c864;
+    --color_bg : #23232c;
 }
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    line-height: 1;
     list-style: none;
-    color: #333;
 }
-
+img{
+    vertical-align: top;
+    
+}
 a{
     color: inherit;
     text-decoration: none;
 }
-img{
-    vertical-align: bottom;
+
+body{
+    color: #333;
+}
+
+.wrap{
+    width: 1000px;
+    display: grid;
+    grid-template-columns: 200px 800px;
+    grid-template-areas: "header contents";
 }
 
 /* header */
 header{
-    width: 100%;
-    height: 100px;
-    display: grid;
-    grid-template-columns: 200px auto;
-    align-items: center;
-    position: relative;
-    z-index: 100;
-}
-
-.logo img{
+    grid-area: header;
     width: 200px;
-}
-nav{
-    justify-self: end;
-    align-self: flex-end;
-    padding-right: 100px;
-}
-nav::before{
-    position: absolute;
-    content: "";
-    left: 0;
-    right: 0;
-    top: 100%;
-    height: 0px;
-    background-color: #ccc;
-    transition: 0.5s;
-}
-
-nav:hover::before{
-    height: var(--menuHeight);
-}
-
-.mainMenu{
+    background-color: var(--color_bg);
     display: grid;
-    grid-template-columns: repeat(4, 160px);
+    grid-template-rows: 80px auto;
+    grid-template-areas: "logo" "nav";
 }
 
-.mainMenu > li{
-    position: relative;
+.logo{
+    grid-area: logo;
+    padding: 20px 0;
 }
+
+nav{
+    grid-area: nav;
+    color: #fff;
+    width: 100%;
+    padding-top: 20px;
+}
+
 .mainMenu > li > a{
+
     display: block;
     font-weight: bold;
-    font-size: 20px;
-    line-height: 32px;
-    color: #fff;
-    background-color: #333;
     text-align: center;
+    font-size: 20px;
+    line-height: 50px;
 }
 .mainMenu > li:hover > a{
-    background-color: var(--mainColor);
-    
+    background-color: var(--color_main);
+    color: #333;
 }
-.subMenu{
-    position: absolute;
-    width: 100%;
-    background-color: #ccc;
-    height: 0px;
-    overflow: hidden;
-    transition: 0.5s;
+.subMenuWrap{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 0.3s;
+}
+.mainMenu > li:hover > .subMenuWrap{
+    font-weight: bold;
+    grid-template-rows: 1fr;
 }
 
-nav:hover .subMenu{
-    height: var(--menuHeight);
+.subMenu{
+    overflow: hidden;
+    background-color: #ccc;
+    color: #333;
+    text-align: center;
 }
+
 .subMenu > li > a{
     display: block;
-    width: 100%;
-    line-height: 36px;
-    text-align: center;
-    margin-top: 10px;
-}
-.subMenu > li:hover > a{
-    background-color: #c78b4e;
-    font-weight: bold;
-    color: #fff;
+    line-height: 30px;
 }
 
+.subMenu > li:hover > a{
+    background-color: #666;
+    color: #c8c864;
+}
 /* /header */
 
-/* main */
-main{
-    width: 1200px;
-    margin: 0 auto;
+
+/* contents */
+.contentsWrap{
+    grid-area: contents;
 }
 
 
-/* --slide */
-
 .slideWrap{
-    height: 300px;
-    position: relative;
+    height: 350px;
     overflow: hidden;
+    position: relative;
 }
 
 .slideItem{
     position: absolute;
-    left: 0;
-    right: 0;
     top: 0;
-    bottom: 0;
+    left: 0;
     visibility: hidden;
     opacity: 0;
-    transition: 2s;
+    transition: 1.5s;
 }
 .slideItem.current{
     visibility: visible;
     opacity: 1;
 }
 
+
 .slideItem h2{
     position: absolute;
-    display: block;
-    color: #fff;
-    bottom: 0;
-    right: 100px;
-    padding: 10px 20px;
-    background-color: var(--mainColor);
+    bottom: 15%;
+    right: 0;
+    color: #FFF;
+    background-color: rgba(0, 0, 10, 0.8);
     font-size: 36px;
+    padding: 10px 80px;
 }
-
-/* --/slide */
 
 
 .boardWrap{
     height: 200px;
     display: grid;
-    grid-template-columns: 1fr 1fr 400px;
-    grid-template-areas: "notice gallery shortcut";
+    grid-template-columns: auto 200px 200px;
+    grid-template-areas: "board banner shortcut";
 }
-.sectionTitle{
-    padding: 10px;
-}
-.notice{
-    grid-area: notice;
+
+.board{
+    grid-area: board;
+    padding: 5px;
     display: grid;
     grid-template-rows: max-content auto;
 }
 
-.notice ul{
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.notice li{
-    position: relative;
-}
-
-
-.notice li:before{
-    position: absolute;
-    content: "";
-    width: 6px;
-    height: 6px;
-    background-color: #333;
-    border-radius: 50%;
-    left: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.notice li a{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px 0 20px;
-    
-}
-
-.notice li p{
-    line-height: 24px;
-    color: inherit;
-}
-.notice li:hover::before{
-    background-color: #fff;
-}
-
-.notice li:hover a{
-    background-color: #333;
-    color: #fff;
-}
-
-
-.gallery{
-    grid-area: gallery;
-    display: grid;
-    grid-template-rows: max-content auto;
-}
-
-
-.gallery ul{
-    display: flex;
-    justify-content: space-around;
-    align-self: center;
-}
-
-.gallery li{
-    position: relative;
-}
-.gallery li:hover a::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.3);
-    
-}
-
-.shortcut{
-    grid-area: shortcut;
-}
-
-.sectionInner{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.sectionInner::before{
-    content: "";
-    display: none;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.3);
-}
-.sectionInner h2{
-    position: absolute;
-    display: block;
-    background-color: rgba(255, 255, 255, 0.5);
-    width: 80%;
-    text-align: center;
-    padding: 10px;
-}
-.sectionInner img{
-    width: 100%;
-    height: 100%;
-    object-fit: scale-down;
-}
-
-.shortcut:hover ::before{
-    display: block;
-}
-.shortcut:hover h2{
-    color: var(--mainColor);
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* /main */
-
-/* footer */
-footer{
-    width: 100%;
-    height: 100px;
-    display: grid;
-    grid-template-columns: auto 400px;
-    grid-template-rows: auto auto;
-    grid-template-areas: "copyright sns" "copyright family";
-    background-color: #999;
-}
-
-footer div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.copyright{
-    grid-area: copyright;
-}
-
-.sns{
-    grid-area: sns;
-}
-.sns ul{
+.titleWrap{
     display: flex;
     gap: 20px;
 }
 
-.sns a{
-    width: 40px;
-    height: 40px;
+.titleWrap > a > h2{
     display: block;
-    overflow: hidden;
-    border-radius: 10px;
+    width: 100px;
+    font-size: 20px;
+    padding: 4px 5px;
+    text-align: center;
 }
-.sns img{
-    width: 100%;
+
+.titleWrap > a.active{
+    background-color: #23232c;
+    color: #fff;
+}
+
+.boardInner{
+    border-top: 2px solid #23232c;
+    padding: 8px;
+    display: grid;
+    align-items: center;
+    
+}
+
+
+
+.notice{
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+.notice.active{
+    display: flex;
+}
+
+.notice > li{
+    padding: 2px 5px;
+}
+.notice > li:hover{
+    background-color: #23232c;
+    color: #fff;
+}
+
+.notice > li > a{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+}
+
+.notice > li > a:before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #23232c;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.notice ul > li:hover > a:before{
+    background-color: #fff;
+}
+
+.gallery{
+    display: none;
+    justify-content: space-around;
+}
+
+.gallery.active{
+    display: flex;
+}
+
+
+.sectionStyle{
+    width: 200px;
     height: 100%;
-    object-fit: scale-down;
+    position: relative;
+    padding: 5px;
 }
 
-
-.family{
-    grid-area: family;
-}
-
-
-/* /footer */
-
-/* modal */
-.modalWrap{
-    position: fixed;
+.sectionStyle a{
+    display: flex;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+}
+
+.sectionStyle a:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.sectionStyle h2{
+    background-color: rgba(0, 0, 10, 0.8);
+    width: 70%;
+    text-align: center;
+    line-height: 40px;
+}
+
+.sectionStyle img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0;
+}
+
+.bannerWrap{
+    grid-area: banner;
+}
+
+.shortcutWrap{
+    grid-area: shortcut;
+}
+
+
+/* /contents */
+
+
+/* footer */
+footer{
+    height: 100px;
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-rows: auto max-content;
+    grid-template-areas: "logo lnb" "logo copyright";
+    color: #666;
+}
+
+.fLogo{
+    grid-area: logo;
+    display: grid;
+    align-items: flex-end;
+}
+
+.fLnb{
+    grid-area: lnb;
+    display: grid;
+    justify-content: center;
+    align-items: flex-end;
+}
+.fLnb ul{
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+    
+}
+
+.copyright{
+    grid-area: copyright;
+    text-align: center;
+}
+/* /footer */
+
+
+/* modal */
+.modalWrap{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
     display: none;
     justify-content: center;
     align-items: center;
 }
-.modalWrap.active{
-    display: flex;
-}
 
+.modalWrap.active{
+    display: grid;
+}
 
 .modal{
     background-color: #eee;
-    width: 700px;
+    width: 600px;
     padding: 30px 50px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-auto-flow: row;
     gap: 10px;
 }
+
 .modal h2{
-    margin-bottom: 30px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #23232c;
 }
 
-.modal .btnClose{
+.btnClose{
+    justify-self: flex-end;
     display: block;
-    padding: 10px 20px;
+    background-color: #23232c;
     color: #fff;
-    background-color: #333;
-    align-self: end;
-    margin-top: 30px;
-}
-
-.modal .btnClose:hover{
-    background-color: var(--mainColor);
+    text-align: center;
+    padding: 4px 15px;
 }
 /* /modal */
