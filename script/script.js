@@ -1,54 +1,18 @@
-let slides = document.querySelectorAll(".slideItem");
-let slideIdx = 0;
-setInterval(()=>{
-    let prevIdx = slideIdx;
-    slides[prevIdx].setAttribute("class", "slideItem prev");
+// slide
 
-    slideIdx = ++slideIdx % slides.length;
-    slides[slideIdx].setAttribute("class", "slideItem current");
+let slides = document.querySelectorAll(".slide li a"),
+    idx = 0;
 
-    setTimeout(()=>{
-        slides[prevIdx].classList.remove("prev")
-    }, 2000)
-}, 2500)
+let slideAnimation = setInterval(()=>{
+    let currentIdx = idx,
+        nextIdx = (idx + 1) % slides.length;
 
+    slides[currentIdx].setAttribute("class", "prev");
+    slides[nextIdx].classList.add("current");
 
-
-
-
-
-
-
-
-
-
-let boardTap = document.querySelectorAll(".titleWrap > h2 > a"),
-    boardContents = document.querySelectorAll(".boardInner > ul");
-
-
-boardTap.forEach((title, idx)=>{
-    title.addEventListener("click", e=>{
-        boardTap.forEach(i=>i.classList.remove("active"));
-        e.currentTarget.classList.add("active");
-
-        boardContents.forEach(i=>i.classList.remove("active"));
-        boardContents[idx].classList.add("active");
-    })
-})
-
-
-
-let noticeItem = document.querySelector(".notice > li:first-of-type > a");
-
-noticeItem.addEventListener("click", e=>{
-    e.preventDefault();
-    document.querySelector(".modalWrap").classList.add("active");
-})
-
-let btnClose = document.querySelector(".modal .btnClose");
-
-
-btnClose.addEventListener("click", e=>{
-    e.preventDefault();
-    document.querySelector(".modalWrap").classList.remove("active");
-})
+    let removeClass = setTimeout(()=>{
+        slides[currentIdx].classList.remove("prev");
+        idx = nextIdx;
+        clearTimeout(removeClass);
+    }, 2100)
+}, 2800)

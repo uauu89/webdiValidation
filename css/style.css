@@ -1,273 +1,277 @@
 @charset "utf-8";
 
-:root{
-    --color_main : #c8c864;
-    --color_bg : #23232c;
-}
 
+:root{
+    --mainColor : #146806;
+
+    --slide1 : #3b4b0c;
+    --slide2 : #6ca233;
+    --slide3 : #fcae6c;
+}
 
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     list-style: none;
+    box-sizing: border-box;
 }
-img{
-    vertical-align: top;
-    
-}
+
 a{
     color: inherit;
     text-decoration: none;
 }
 
-body{
-    color: #333;
+img{
+    vertical-align: top;
 }
 
-.wrap{
-    width: 1000px;
+body{
+    height: 100%;
     display: grid;
-    grid-template-columns: 200px 800px;
-    grid-template-areas: "header contents";
+    grid-template-columns: 200px auto;
+    grid-template-rows: max-content 100px;
+    grid-template-areas: "header contents" "footer footer";
+    color: #333;
 }
 
 /* header */
+
 header{
-    grid-area: header;
-    width: 200px;
-    background-color: var(--color_bg);
     display: grid;
-    grid-template-rows: 80px auto;
-    grid-template-areas: "logo" "nav";
+    grid-template-rows: 140px 400px auto;
+    row-gap: 20px;
 }
 
-.logo{
-    grid-area: logo;
-    padding: 20px 0;
-}
-
-nav{
-    grid-area: nav;
-    color: #fff;
+.mainMenu{
     width: 100%;
-    padding-top: 20px;
-}
-
-.mainMenu > li > a{
-
-    display: block;
-    font-weight: bold;
     text-align: center;
+}
+.mainMenu > li > a{
+    display: block;
     font-size: 20px;
-    line-height: 50px;
+    font-weight: bold;
+    padding: 8px 0;
 }
+
 .mainMenu > li:hover > a{
-    background-color: var(--color_main);
-    color: #333;
+    background-color: #249410;
+    color: #fff;
 }
+
 .subMenuWrap{
     display: grid;
     grid-template-rows: 0fr;
-    transition: 0.3s;
+    transition: 0.5s;
 }
-.mainMenu > li:hover > .subMenuWrap{
-    font-weight: bold;
+
+.mainMenu > li:hover .subMenuWrap{
     grid-template-rows: 1fr;
 }
 
 .subMenu{
     overflow: hidden;
     background-color: #ccc;
-    color: #333;
-    text-align: center;
 }
 
 .subMenu > li > a{
     display: block;
-    line-height: 30px;
+    padding: 8px 0;
 }
 
-.subMenu > li:hover > a{
-    background-color: #666;
-    color: #c8c864;
+.subMenu > li > a:hover{
+    font-weight: bold;
+    background-color: #999;
+}
+
+
+.spotMenu{
+    display: flex;
+    justify-content: center;
+}
+
+.spotMenu a{
+    display: inline-block;
+    line-height: 16px;
+    text-align: center;
+}
+.spotMenu a:hover{
+    text-decoration: underline;
+}
+
+.spotMenu .borderRight::after{
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 20px;
+    background-color: #ccc;
+    vertical-align: bottom;
+    margin: 0 10px;
+}
+
+
+.quickMenu{
+    position: fixed;
+    padding: 10px;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background-color: #146806;
+}
+
+.quickMenu a{
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #999;
+    margin: 10px 0;
 }
 /* /header */
 
 
 /* contents */
-.contentsWrap{
+
+.sectionPadding{
+    padding: 10px 0;
+}
+
+main{
     grid-area: contents;
+    width: 100%;
 }
 
-
-.slideWrap{
-    height: 350px;
-    overflow: hidden;
+.slide{
+    height: 400px;
     position: relative;
+    overflow: hidden;
 }
 
-.slideItem{
+
+.slide a{
     position: absolute;
-    top: 0;
     left: 0;
-    visibility: hidden;
-    opacity: 0;
-    transition: 1.5s;
-}
-.slideItem.current{
-    visibility: visible;
-    opacity: 1;
+    top: 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
-
-.slideItem h2{
+.slide a::after{
+    content: "";
+    display: block;
     position: absolute;
-    bottom: 15%;
+    left: 0;
     right: 0;
-    color: #FFF;
-    background-color: rgba(0, 0, 10, 0.8);
-    font-size: 36px;
-    padding: 10px 80px;
+    top: 0;
+    bottom: 0;
+}
+.slide a:hover::after{
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
+.slide a.current{
+    top: 0;
+    transition: 2s;
+}
+.slide a.prev{
+    top: -100%;
+    transition: 2s;
+}
+
+.slide img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: left;
+}
+
+.banner{
+    height: 200px;
+}
+
+.banner > a{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    height: 100%;
+}
+
+.bannerImgWrap{
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.banner img{
+    height: 100%;
+    object-fit: contain;
+}
+
+.banner .context h2{
+    margin-bottom: 30px;
+}
 
 .boardWrap{
-    height: 200px;
-    display: grid;
-    grid-template-columns: auto 200px 200px;
-    grid-template-areas: "board banner shortcut";
-}
-
-.board{
-    grid-area: board;
-    padding: 5px;
+    height: 250px;
     display: grid;
     grid-template-rows: max-content auto;
 }
 
-.titleWrap{
+.boardTitle{
     display: flex;
-    gap: 20px;
+    gap: 5px;
 }
 
-.titleWrap > a > h2{
+.boardTitle h2 a{
     display: block;
-    width: 100px;
-    font-size: 20px;
-    padding: 4px 5px;
+    width: 180px;
+    line-height: 30px;
+    padding: 10px 30px;
     text-align: center;
 }
 
-.titleWrap > a.active{
-    background-color: #23232c;
+.boardTitle h2 .active{
+    background-color: #333;
     color: #fff;
 }
 
-.boardInner{
-    border-top: 2px solid #23232c;
-    padding: 8px;
+.boardList{
     display: grid;
     align-items: center;
-    
 }
 
-
-
-.notice{
+ul.notice{
     display: none;
-    flex-direction: column;
-    gap: 10px;
-}
-.notice.active{
-    display: flex;
+    padding: 5px 20px;
 }
 
-.notice > li{
-    padding: 2px 5px;
-}
-.notice > li:hover{
-    background-color: #23232c;
-    color: #fff;
-}
-
-.notice > li > a{
+ul.notice li a{
     position: relative;
     display: flex;
     justify-content: space-between;
-    padding-left: 20px;
+    padding: 5px 10px 5px 30px;
 }
 
-.notice > li > a:before{
-    content: "";
+ul.notice li a::before{
     display: block;
     position: absolute;
+    content: "";
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background-color: #23232c;
-    left: 4px;
+    background-color: #333;
+    left: 8px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.notice ul > li:hover > a:before{
-    background-color: #fff;
-}
-
-.gallery{
-    display: none;
-    justify-content: space-around;
-}
-
-.gallery.active{
-    display: flex;
-}
-
-
-.sectionStyle{
-    width: 200px;
-    height: 100%;
-    position: relative;
-    padding: 5px;
-}
-
-.sectionStyle a{
-    display: flex;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+ul.notice li a:hover{
+    background-color: #333;
     color: #fff;
-    justify-content: center;
-    align-items: center;
 }
 
-.sectionStyle a:hover{
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-.sectionStyle h2{
-    background-color: rgba(0, 0, 10, 0.8);
-    width: 70%;
-    text-align: center;
-    line-height: 40px;
-}
-
-.sectionStyle img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 0;
-}
-
-.bannerWrap{
-    grid-area: banner;
-}
-
-.shortcutWrap{
-    grid-area: shortcut;
+ul.notice li a:hover::before{
+    background-color: #fff;
 }
 
 
@@ -276,79 +280,23 @@ nav{
 
 /* footer */
 footer{
-    height: 100px;
+    grid-area: footer;
     display: grid;
-    grid-template-columns: 200px auto;
-    grid-template-rows: auto max-content;
-    grid-template-areas: "logo lnb" "logo copyright";
-    color: #666;
+    grid-template-columns: 200px auto 250px;
+    grid-template-areas: "fLogo copyright sns";
+    background-color: #ccc;
 }
 
 .fLogo{
-    grid-area: logo;
-    display: grid;
-    align-items: flex-end;
+    grid-area: fLogo;
 }
-
-.fLnb{
-    grid-area: lnb;
-    display: grid;
-    justify-content: center;
-    align-items: flex-end;
-}
-.fLnb ul{
-    display: flex;
-    gap: 20px;
-    font-weight: bold;
-    
-}
-
 .copyright{
     grid-area: copyright;
     text-align: center;
+    line-height: 100px;
 }
+.sns{
+    grid-area: sns;
+}
+
 /* /footer */
-
-
-/* modal */
-.modalWrap{
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.modalWrap.active{
-    display: grid;
-}
-
-.modal{
-    background-color: #eee;
-    width: 600px;
-    padding: 30px 50px;
-    display: grid;
-    grid-auto-flow: row;
-    gap: 10px;
-}
-
-.modal h2{
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #23232c;
-}
-
-.btnClose{
-    justify-self: flex-end;
-    display: block;
-    background-color: #23232c;
-    color: #fff;
-    text-align: center;
-    padding: 4px 15px;
-}
-/* /modal */
